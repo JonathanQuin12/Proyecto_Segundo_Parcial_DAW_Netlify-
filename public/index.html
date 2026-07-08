@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurante SABORÉ - Cargando Sistema</title>
-    <meta http-equiv="refresh" content="0;url=https://proyecto-segundo-parcial-daw-qu33.onrender.com/inicio">
+    <meta http-equiv="refresh" content="0;url=https://proyecto-segundo-parcial-daw-netlify.onrender.com/public/index.php?url=inicio">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background-color: #f8f9fa;
             margin: 0;
-            color: #333;
         }
         .loader-box {
             text-align: center;
@@ -25,8 +24,8 @@
         }
         .spinner {
             border: 4px solid rgba(0, 0, 0, 0.05);
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border-left-color: #ff6b6b;
             animation: spin 1s linear infinite;
@@ -34,15 +33,14 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         a { color: #ff6b6b; text-decoration: none; font-weight: bold; }
-        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <div class="loader-box">
         <div class="spinner"></div>
         <h2>Conectando al servidor...</h2>
-        <p>Redireccionando al sistema dinámico seguro del Restaurante SABORÉ.</p>
-        <p><small>Si la página no carga de inmediato, <a href="https://proyecto-segundo-parcial-daw-qu33.onrender.com/inicio">haz clic aquí para acceder</a>.</small></p>
+        <p>Redireccionando al sistema seguro del Restaurante SABORÉ.</p>
+        <p><small>Si no carga automáticamente, <a href="https://proyecto-segundo-parcial-daw-netlify.onrender.com/public/index.php?url=inicio">haz clic aquí para acceder</a>.</small></p>
     </div>
 </body>
 </html>
