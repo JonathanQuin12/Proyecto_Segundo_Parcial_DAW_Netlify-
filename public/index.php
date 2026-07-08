@@ -1,8 +1,12 @@
 <?php
-// Front Controller
-// Punto de entrada de la aplicación.
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
-// Se importan los controladores.
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    exit(0);
+}
+
 require_once __DIR__ . "/../app/controllers/InicioController.php";
 require_once __DIR__ . "/../app/controllers/ClienteController.php";
 require_once __DIR__ . "/../app/controllers/PedidoController.php";
@@ -13,27 +17,15 @@ require_once __DIR__ . "/../app/controllers/EmpleadoController.php";
 require_once __DIR__ . "/../app/controllers/CategoriaController.php";
 require_once __DIR__ . "/../app/controllers/ProductoController.php";
 
-
-// Se obtiene la ruta enviada por la URL.
-// Si no existe ninguna ruta, muestra el inicio.
 $url = $_GET["url"] ?? "inicio";
 
-
-// Según la ruta recibida, se ejecuta el método correspondiente.
 switch ($url) {
-
-
-    //INICIO//
-
     case "inicio":
         $controller = new InicioController();
         $controller->index();
         break;
 
-    //CLIENTES//
-
     case "clientes/listar":
-
         $controller = new ClienteController();
         $controller->listar();
         break;
@@ -43,9 +35,7 @@ switch ($url) {
         $controller->crearForm();
         break;
 
-
     case "clientes/crear":
-
         $controller = new ClienteController();
         $controller->crear();
         break;
@@ -65,15 +55,12 @@ switch ($url) {
         $controller->eliminar();
         break;
 
-    //PEDIDOS//
-
     case "pedidos/listar":
         $controller = new PedidoController();
         $controller->listar();
         break;
 
     case "pedidos/crearForm":
-
         $controller = new PedidoController();
         $controller->crearForm();
         break;
@@ -98,8 +85,6 @@ switch ($url) {
         $controller->eliminar();
         break;
 
-    //PROVEEDORES//
-
     case "proveedores/listar":
         $controller = new ProveedorController();
         $controller->listar();
@@ -111,7 +96,6 @@ switch ($url) {
         break;
 
     case "proveedores/crear":
-
         $controller = new ProveedorController();
         $controller->crear();
         break;
@@ -130,8 +114,6 @@ switch ($url) {
         $controller = new ProveedorController();
         $controller->eliminar();
         break;
-
-    //COMPRAS//
 
     case "compras/listar":
         $controller = new CompraController();
@@ -163,15 +145,12 @@ switch ($url) {
         $controller->eliminar();
         break;
 
-    //EMPLEADOS//
-
     case "empleados/listar":
         $controller = new EmpleadoController();
         $controller->listar();
         break;
 
     case "empleados/crearForm":
-
         $controller = new EmpleadoController();
         $controller->crearForm();
         break;
@@ -195,8 +174,6 @@ switch ($url) {
         $controller = new EmpleadoController();
         $controller->eliminar();
         break;
-
-    //VENTAS//
 
     case "ventas/listar":
         $controller = new VentaController();
@@ -228,8 +205,6 @@ switch ($url) {
         $controller->eliminar();
         break;
 
-    //CATEGORIAS//
-
     case "categorias/listar":
        $controller = new CategoriaController();
        $controller->listar();
@@ -259,9 +234,6 @@ switch ($url) {
        $controller = new CategoriaController();
        $controller->eliminar();
        break;
-
-
-    //PRODUCTOS//
 
     case "productos/listar":
        $controller = new ProductoController();
@@ -293,13 +265,8 @@ switch ($url) {
        $controller->eliminar();
        break;
 
-    //RUTA NO ENCONTRADA//
-
     default:
-
         http_response_code(404);
-
         echo "404 - Ruta no encontrada";
-
         break;
 }
